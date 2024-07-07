@@ -37,7 +37,7 @@ const LoginPage = () => {
       const { token } = await response.json();
       Cookies.set("token", token, {
         expires: 1,
-        sameSite: "none",
+        sameSite: "None",
         secure: true,
       });
       router.push("/pages/profile");
