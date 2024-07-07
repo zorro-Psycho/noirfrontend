@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import { useRouter } from "next/navigation";
@@ -22,17 +22,24 @@ const LoginPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const response = await fetch("https://backend-8v17.onrender.com/api/users/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    });
+    const response = await fetch(
+      "https://noirgaming.vercel.app/api/users/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      }
+    );
 
     if (response.ok) {
       const { token } = await response.json();
-      Cookies.set("token", token, { expires: 1 });
+      Cookies.set("token", token, {
+        expires: 1,
+        sameSite: "none",
+        secure: true,
+      });
       router.push("/pages/profile");
       alert("Login successful");
     } else {

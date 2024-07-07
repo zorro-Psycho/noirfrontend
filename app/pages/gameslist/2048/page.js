@@ -11,7 +11,7 @@ const Game = () => {
     console.log('Submitting score:', score);
     console.log('gameId:', gameId);
     try {
-      const response = await fetch('https://backend-8v17.onrender.com/api/submit-score', {
+      const response = await fetch('https://noirgaming.vercel.app/api/submit-score', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
