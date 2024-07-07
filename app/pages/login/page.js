@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Header from "../../components/Header";
 import Cookies from "js-cookie";
 import Link from "next/link";
-
+// 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,6 +28,7 @@ const LoginPage = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token.trim()}`,
         },
         body: JSON.stringify({ email, password }),
       }
