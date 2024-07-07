@@ -1,0 +1,175 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #111;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00f;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #00f;
+}
+
+.search-bar input {
+    padding: 5px;
+    font-size: 16px;
+}
+
+.hero {
+    position: relative;
+    text-align: center;
+    /* background: url('hero-bg.jpg') no-repeat center center/cover; */
+    color: #fff;
+    padding: 100px 20px;
+}
+
+.carousel {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel img {
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin: 0;
+}
+
+.hero-content p {
+    font-size: 24px;
+}
+
+button {
+    background-color: #00f;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0077ff;
+}
+
+.featured-games {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #111;
+}
+
+.featured-games h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.game-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.game-card {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 200px;
+    transition: transform 0.3s;
+}
+
+.game-card:hover {
+    transform: scale(1.05);
+}
+
+.game-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.community {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #111;
+}
+
+.community h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.footer-links, .newsletter, .social-icons {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.footer-links a {
+    color: #00f;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #0077ff;
+}
+
+.newsletter input {
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.newsletter button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #00f;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.newsletter button:hover {
+    background-color: #0077ff;
+}
