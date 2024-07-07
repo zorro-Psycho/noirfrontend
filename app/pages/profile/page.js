@@ -26,7 +26,7 @@ const Profile = () => {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}` // Include the token in the request headers
+            // 'Authorization': `Bearer ${token}` // Include the token in the request headers
           },
           credentials: 'include'
         });
