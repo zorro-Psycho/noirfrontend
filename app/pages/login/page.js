@@ -42,6 +42,14 @@ const LoginPage = () => {
       });
       router.push("/pages/profile");
       alert("Login successful");
+      console.log(token);
+      try{
+        Cookies.set("token", token, { expires: 1, secure: true, sameSite: 'None' });
+        router.push("/pages/profile");
+        alert("Login successful");
+      } catch(error){
+        console.error("Error setting token into cookie", error);
+      }
     } else {
       setError("Login failed. Please check your credentials.");
     }

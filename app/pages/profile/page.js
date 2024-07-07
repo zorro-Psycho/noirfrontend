@@ -19,6 +19,10 @@ const Profile = () => {
     }
 
     const fetchProfileData = async () => {
+      const token = Cookies.get('token'); // Ensure token is available
+      if (!token) {
+        throw new Error('No token available');
+      }
       try {
         const response = await fetch(
           "https://noirgaming.vercel.app/api/Users/profile",
