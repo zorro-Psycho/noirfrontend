@@ -32,6 +32,7 @@ const LoginPage = () => {
 
     if (response.ok) {
       const { token } = await response.json();
+      console.log(token);
       Cookies.set("token", token, { expires: 1 });
       router.push("/pages/profile");
       alert("Login successful");
