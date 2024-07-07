@@ -23,7 +23,7 @@ const Settings = () => {
 
     const fetchProfileData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/Users/profile', {
+        const response = await fetch('https://backend-8v17.onrender.com/api/Users/profile', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ const Settings = () => {
 
     const token = Cookies.get('token');
     try {
-      const response = await fetch('http://localhost:5000/api/Users/update-username', {
+      const response = await fetch('https://backend-8v17.onrender.com/api/Users/update-username', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -87,7 +87,7 @@ const Settings = () => {
 
     const token = Cookies.get('token');
     try {
-      const response = await fetch('http://localhost:5000/api/Users/update-password', {
+      const response = await fetch('https://backend-8v17.onrender.com/api/Users/update-password', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

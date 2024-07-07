@@ -22,7 +22,7 @@ const Profile = () => {
 
     const fetchProfileData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/Users/profile', {
+        const response = await fetch('https://backend-8v17.onrender.com/api/Users/profile', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ const Profile = () => {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/api/Users/GameSessions/${sessionId}`, {
+      const response = await fetch(`https://backend-8v17.onrender.com/api/Users/GameSessions/${sessionId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

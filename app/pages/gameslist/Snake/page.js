@@ -8,7 +8,7 @@ const Game = () => {
   const submitScore = async (score,gameId) => {
     console.log('Submitting score:', score);
     try {
-      const response = await fetch('http://localhost:5000/api/submit-score', {
+      const response = await fetch('https://backend-8v17.onrender.com/api/submit-score', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

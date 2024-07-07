@@ -68,7 +68,7 @@ const Home = () => {
                 <p className="mt-2 text-m font-serif text-gray-400">Navigate your snake to grow longer by eating food while avoiding collisions in this classic arcade game.</p>
                 {/* <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition mt-8 mb-10">Play Now</button> */}
                 <button
-  onClick={() => { window.location.href = "http://localhost:3000/pages/gameslist/Snake"; }}
+  onClick={() => { window.location.href = "https://ngz.netlify.app/pages/gameslist/Snake"; }}
   className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition mt-8 mb-10"
 > Play Now
 </button>
@@ -80,7 +80,7 @@ const Home = () => {
                 <p className="mt-2 text-m font-serif text-gray-400">Embark on a captivating puzzle journey where you combine numbered tiles to conquer the elusive 2048 tile, testing your strategy and skill.</p>
                 {/* <button onclick="localhost:3000/pages/flappybird" className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition mt-8 mb-10">Play Now</button> */}
                 <button
-  onClick={() => { window.location.href = "http://localhost:3000/pages/gameslist/2048"; }}
+  onClick={() => { window.location.href = "https://ngz.netlify.app/pages/gameslist/2048"; }}
   className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition mt-8 mb-10"
 >
   Play Now
@@ -93,7 +93,7 @@ const Home = () => {
                 <p className="mt-2 text-m font-serif text-gray-400">Classic strategy game where two players take turns marking spaces in a 3x3 grid to achieve three in a row.</p>
                 {/* <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition mt-8 mb-10">Play Now</button> */}
                 <button
-  onClick={() => { window.location.href = "http://localhost:3000/pages/gameslist/tic_tac_toe"; }}
+  onClick={() => { window.location.href = "https://ngz.netlify.app/pages/gameslist/tic_tac_toe"; }}
   className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition mt-8 mb-10"
 >
   Play Now
