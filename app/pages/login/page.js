@@ -33,8 +33,13 @@ const LoginPage = () => {
     if (response.ok) {
       const { token } = await response.json();
       console.log(token);
-      Cookies.set("token", token, { expires: 1, secure: true, sameSite: 'None' });      router.push("/pages/profile");
-      alert("Login successful");
+      try{
+        Cookies.set("token", token, { expires: 1, secure: true, sameSite: 'None' });
+        router.push("/pages/profile");
+        alert("Login successful");
+      } catch(error){
+        console.error("Error setting token into cookie", error);
+      }
     } else {
       setError("Login failed. Please check your credentials.");
     }
