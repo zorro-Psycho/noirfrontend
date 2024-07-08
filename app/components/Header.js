@@ -51,8 +51,8 @@ const Header = () => {
               <ul className="absolute left-0 mt-1 bg-gray-800 hidden group-hover:block z-10">
                 <li><Link href="#" className="block px-4 py-2 text-white hover:bg-gray-700">Forums</Link></li>
                 <li><Link href="#" className="block px-4 py-2 text-white hover:bg-gray-700">Events</Link></li>
-                <li><Link href="#" className="block px-4 py-2 text-white hover:bg-gray-700">Leaderboards</Link></li>
-                <li><Link href="#" className="block px-4 py-2 text-white hover:bg-gray-700">Tournaments</Link></li>
+                <li><Link href="/pages/leaderboard" className="block px-4 py-2 text-white hover:bg-gray-700">Leaderboards</Link></li>
+                <li><Link href="/pages/tournament" className="block px-4 py-2 text-white hover:bg-gray-700">Tournaments</Link></li>
               </ul>
             </li>
             <li className="relative group">
@@ -63,7 +63,7 @@ const Header = () => {
               <ul className="absolute left-0 mt-1 bg-gray-800 hidden group-hover:block z-10">
                 <li><Link href="/pages/faq" className="block px-4 py-2 text-white hover:bg-gray-700">FAQs</Link></li>
                 <li><Link href="/pages/contact" className="block px-4 py-2 text-white hover:bg-gray-700">Contact Us</Link></li>
-                <li><Link href="#" className="block px-4 py-2 text-white hover:bg-gray-700">Technical Support</Link></li>
+                <li><Link href="/pages/technical" className="block px-4 py-2 text-white hover:bg-gray-700">Technical Support</Link></li>
               </ul>
             </li>
             {isAuthenticated ? (
