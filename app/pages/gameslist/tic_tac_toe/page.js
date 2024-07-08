@@ -8,13 +8,14 @@ import Cookies from 'js-cookie';
 const Game = () => {
   const submitScore = async (score,gameId) => {
     const token = Cookies.get('token');
+    console.log('Token:', token);
     console.log('Submitting score:', score);
     try {
       const response = await fetch('https://noirgaming.vercel.app/api/submit-score', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${token.trim()}`,
+          // Authorization: `Bearer ${token.trim()}`,
         },
         credentials: 'include',
         body: JSON.stringify({ score:score,gameId:gameId }),
