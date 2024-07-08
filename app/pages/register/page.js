@@ -124,7 +124,7 @@ const RegisterPage = () => {
             <div className="text-center text-white mt-4">
               <p>
                 Already have an account?{' '}
-                <Link href="/login" className="text-blue-500 hover:text-blue-700">
+                <Link href="/pages/login" className="text-blue-500 hover:text-blue-700">
                   Log in
                 </Link>
               </p>
