@@ -1,55 +1,62 @@
+"use client";
 
-'use client';
-
-import React, { useEffect } from 'react';
-import Header from '../../../components/Header';
-import Footer from '../../../components/Footer';
-
+import React, { useEffect } from "react";
+import Header from "../../../components/Header";
+import Footer from "../../../components/Footer";
+import Cookies from "js-cookie";
 
 const Game = () => {
-  const submitScore = async (score,gameId) => {
-    console.log('Submitting score:', score);
-    console.log('gameId:', gameId);
+  const submitScore = async (score, gameId) => {
+    console.log("Submitting score:", score);
+    console.log("gameId:", gameId);
+    const token = Cookies.get("token");
     try {
-      const response = await fetch('https://noirgaming.vercel.app/api/submit-score', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-        body: JSON.stringify({ score:score,gameId:gameId }),
-      });
+      const response = await fetch(
+        "https://noirgaming.vercel.app/api/submit-score",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token.trim()}`,
+          },
+          credentials: "include",
+          body: JSON.stringify({ score: score, gameId: gameId }),
+        }
+      );
 
       if (response.ok) {
-        console.log('Score submitted successfully!');
+        console.log("Score submitted successfully!");
         // alert('Score submitted successfully!');
       } else {
-        console.error('Failed to submit score.');
+        console.error("Failed to submit score.");
         // alert('Failed to submit score.');
       }
     } catch (error) {
-      console.error('Error submitting score:', error);
+      console.error("Error submitting score:", error);
     }
   };
 
   useEffect(() => {
     const handleMessage = (event) => {
       // Check if the message is coming from the game iframe
-      if (event.origin !== 'https://zorro-psycho.github.io') return;
+      if (event.origin !== "https://zorro-psycho.github.io") return;
       const gameId = 1;
 
-      console.log('Message received from iframe:', event.data);
-      if (event.data.type === 'submit-score' && typeof event.data.score === 'number') {
+      console.log("Message received from iframe:", event.data);
+      if (
+        event.data.type === "submit-score" &&
+        typeof event.data.score === "number"
+      ) {
         submitScore(event.data.score, gameId);
       } else {
-        console.error('Invalid message format or missing score:', event.data);
+        console.error("Invalid message format or missing score:", event.data);
       }
     };
 
-    window.addEventListener('message', handleMessage);
+    window.addEventListener("message", handleMessage);
 
     return () => {
-      window.removeEventListener('message', handleMessage);
+      window.removeEventListener("message", handleMessage);
     };
   }, []);
 

@@ -3,15 +3,18 @@
 import React, { useEffect } from 'react';
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
+import Cookies from 'js-cookie';
 
 const Game = () => {
   const submitScore = async (score,gameId) => {
     console.log('Submitting score:', score);
+    const token = Cookies.get('token');
     try {
       const response = await fetch('https://noirgaming.vercel.app/api/submit-score', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token.trim()}`,
         },
         credentials: 'include',
         body: JSON.stringify({ score:score,gameId:gameId }),
