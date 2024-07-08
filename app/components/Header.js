@@ -86,9 +86,9 @@ const Header = () => {
               </li>
             )}
             <li className="relative group z-10">
-              <Link href="#" className="text-white hover:text-blue-500 transition">Shop</Link>
+              <Link href="https://my-store-f7cfd7.creator-spring.com" className="text-white hover:text-blue-500 transition">Shop</Link>
               <ul className="absolute left-0 mt-1 bg-gray-800 hidden group-hover:block z-10">
-                <li><Link href="#" className="block px-4 py-2 text-white hover:bg-gray-700">Merchandise</Link></li>
+                <li><Link href="https://my-store-f7cfd7.creator-spring.com" className="block px-4 py-2 text-white hover:bg-gray-700">Merchandise</Link></li>
                 <li><Link href="#" className="block px-4 py-2 text-white hover:bg-gray-700">In-Game Items</Link></li>
               </ul>
             </li>
