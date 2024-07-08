@@ -15,7 +15,7 @@ const Game = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          // Authorization: `Bearer ${token.trim()}`,
+          Authorization: `Bearer ${token.trim()}`,
         },
         credentials: 'include',
         body: JSON.stringify({ score:score,gameId:gameId }),

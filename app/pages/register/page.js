@@ -28,7 +28,7 @@ const RegisterPage = () => {
 
       if (response.ok) {
         const { token } = await response.json();
-        // Cookies.set("token", token, { expires: 1 });
+        // Cookies.set("token", token, { expires: 1 , secure: true, sameSite: 'None'});
         router.push('/pages/login');
         alert('User registered successfully');
       } else {
