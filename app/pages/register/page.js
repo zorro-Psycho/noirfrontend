@@ -18,7 +18,7 @@ const RegisterPage = () => {
     const payload = { email, username, password };
 
     try {
-      const response = await fetch('https://noirgaming.vercel.app/api/users/register', {
+      const response = await fetch('https://test-noir.vercel.app/api/users/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

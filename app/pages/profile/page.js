@@ -25,7 +25,7 @@ const Profile = () => {
       }
       try {
         const response = await fetch(
-          "https://noirgaming.vercel.app/api/Users/profile",
+          "https://test-noir.vercel.app/api/Users/profile",
           {
             method: "GET",
             headers: {
@@ -76,7 +76,7 @@ const Profile = () => {
 
     try {
       const response = await fetch(
-        `https://noirgaming.vercel.app/api/Users/GameSessions/${sessionId}`,
+        `https://test-noir.vercel.app/api/Users/GameSessions/${sessionId}`,
         {
           method: "DELETE",
           headers: {

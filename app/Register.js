@@ -19,7 +19,7 @@ const RegisterPage = () => {
 
     try {
       console.log('Sending payload:', payload);
-      const response = await fetch('https://noirgaming.vercel.app/api/Users/register', {
+      const response = await fetch('https://test-noir.vercel.app/api/Users/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

@@ -23,7 +23,7 @@ const LoginPage = () => {
     event.preventDefault();
 
     const response = await fetch(
-      "https://noirgaming.vercel.app/api/users/login",
+      "https://test-noir.vercel.app/api/users/login",
       {
         method: "POST",
         headers: {

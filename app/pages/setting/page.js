@@ -23,7 +23,7 @@ const Settings = () => {
 
     const fetchProfileData = async () => {
       try {
-        const response = await fetch('https://noirgaming.vercel.app/api/Users/profile', {
+        const response = await fetch('https://test-noir.vercel.app/api/Users/profile', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ const Settings = () => {
 
     const token = Cookies.get('token');
     try {
-      const response = await fetch('https://noirgaming.vercel.app/api/Users/update-username', {
+      const response = await fetch('https://test-noir.vercel.app/api/Users/update-username', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -87,7 +87,7 @@ const Settings = () => {
 
     const token = Cookies.get('token');
     try {
-      const response = await fetch('https://noirgaming.vercel.app/api/Users/update-password', {
+      const response = await fetch('https://test-noir.vercel.app/api/Users/update-password', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

@@ -12,7 +12,7 @@ const Game = () => {
     const token = Cookies.get("token");
     try {
       const response = await fetch(
-        "https://noirgaming.vercel.app/api/submit-score",
+        "https://test-noir.vercel.app/api/submit-score",
         {
           method: "POST",
           headers: {
