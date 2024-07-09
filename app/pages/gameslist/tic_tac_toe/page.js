@@ -1,11 +1,23 @@
 
 'use client';
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import Cookies from 'js-cookie';
 
+import MusicPlayer from '../../../components/MusicPlayer';
+
+
+const tracks = [
+  { src: '/music/2_Ciphers.mp3', title: '2_Ciphers' },
+  { src: '/music/Decentralization.mp3', title: 'Decentralization' },
+  { src: '/music/Digital_Revolution.mp3', title: 'Digital_Revolution' },
+  { src: '/music/Game_On.mp3', title: 'Game_on' }
+];
+
 const Game = () => {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
   const submitScore = async (score,gameId) => {
     const token = Cookies.get('token');
     console.log('Token:', token);
@@ -50,6 +62,9 @@ const Game = () => {
       window.removeEventListener('message', handleMessage);
     };
   }, []);
+  const toggleCollapse = () => {
+    setIsCollapsed(!isCollapsed); // Toggles the collapsed state
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-green-400 to-blue-500 text-white">
@@ -71,6 +86,15 @@ const Game = () => {
           </p>
         </div>
       </main>
+      <div className={`flex-shrink-0 h-full flex flex-col items-center justify-center ${isCollapsed ? 'hidden md:flex' : 'flex'}`}
+        style={{
+          backgroundImage: `url('/music-bg2.png')`,  // Replace with your background image URL
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <MusicPlayer tracks={tracks} isCollapsed={isCollapsed} toggleCollapse={toggleCollapse} />
+      </div>
       <Footer />
     </div>
   );

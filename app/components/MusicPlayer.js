@@ -69,7 +69,7 @@ const MusicPlayer = ({ tracks, isCollapsed, toggleCollapse }) => {
   };
 
   return (
-    <div className="music-player-container relative bg-gray-800 rounded-lg shadow-md text-white overflow-hidden">
+    <div className="music-player-container relative bg-slate-400 transition-all duration-500  dark:border-slate-500 border-b rounded-t-xl p-0 pb-0.1 ">
       {/* Background Image with Dark Overlay */}
       <div
         className="absolute top-0 left-0 w-full h-full bg-cover bg-center"
@@ -79,17 +79,17 @@ const MusicPlayer = ({ tracks, isCollapsed, toggleCollapse }) => {
         }}
       ></div>
       {/* Music Player Content */}
-      <div className="p-4 relative z-10">
-        <h2 className="text-xl font-bold mb-4">Music Player</h2>
-        <div className={`bg-gray-800 rounded-lg shadow-md text-white ${isCollapsed ? 'w-16' : 'w-64'}`}>
+      <div className="p-3 relative z-10">
+        <h2 className="text-slate-950 text-center transition-all duration-500 dark:text-slate-800 text-2xl">Music Player</h2>
+        <div className={`bg-gray-800 p-5 rounded-lg shadow-md text-white ${isCollapsed ? 'w-16' : 'w-64'}`}>
           {!isCollapsed && (
             <>
               <audio ref={audioRef} src={src} autoPlay={isPlaying}></audio>
-              <h3 className="mb-2 text-lg font-semibold">{title}</h3>
+              <h3 className="text-slate-300 transition-all duration-500 dark:text-slate-400 text-lg pb-3 pl-1 leading-7 truncate">{title}</h3>
               <div className="flex items-center justify-between">
                 <button
                   onClick={togglePlayPause}
-                  className="p-2 bg-blue-600 rounded-full focus:outline-none"
+                  className="p-2 bg-blue-950 rounded-full focus:outline-none"
                   disabled={isLoading}
                 >
                   {isLoading ? (
@@ -120,24 +120,32 @@ const MusicPlayer = ({ tracks, isCollapsed, toggleCollapse }) => {
               <div className="flex mt-2">
                 <button
                   onClick={previousTrack}
-                  className="p-2 bg-purple-600 rounded-full focus:outline-none"
+                  className="p-2 bg-blue-950 rounded-full focus:outline-none"
                 >
-                  Previous
+                  <svg width="24" height="24" fill="none">
+        <path d="m10 12 8-6v12l-8-6Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M6 6v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+                  
                 </button>
                 <button
                   onClick={nextTrack}
-                  className="p-2 bg-purple-600 rounded-full focus:outline-none ml-2"
+                  className="p-2 bg-blue-950 rounded-full focus:outline-none ml-2"
                 >
-                  Next
+                  <svg width="24" height="24" fill="none">
+                <path d="M14 12 6 6v12l8-6Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M18 6v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+                  
                 </button>
               </div>
             </>
           )}
         </div>
         {/* Collapse/Expand Button */}
-        <button
+        <button 
           onClick={toggleCollapse}
-          className="absolute bottom-4 right-4 p-2 bg-blue-600 rounded-full focus:outline-none"
+          className="absolute bottom-4 right-4 p-2 mr-2 mb-2 bg-blue-600 rounded-full focus:outline-none"
         >
           {isCollapsed ? (
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
