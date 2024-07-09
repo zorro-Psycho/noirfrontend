@@ -1,11 +1,11 @@
-// components/MusicPlayer.js
-import { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 const MusicPlayer = ({ tracks, isCollapsed, toggleCollapse }) => {
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
   const audioRef = useRef(null);
 
   const { src, title } = tracks[currentTrackIndex];
@@ -15,28 +15,41 @@ const MusicPlayer = ({ tracks, isCollapsed, toggleCollapse }) => {
     if (audio) {
       const handleLoadedData = () => {
         setDuration(audio.duration);
+        setIsLoading(false);
       };
-      audio.addEventListener('loadeddata', handleLoadedData);
-
       const handleTimeUpdate = () => {
         setCurrentTime(audio.currentTime);
       };
+      const handleError = (error) => {
+        console.error('Error loading audio:', error);
+        setIsLoading(false);
+      };
+
+      audio.addEventListener('loadeddata', handleLoadedData);
       audio.addEventListener('timeupdate', handleTimeUpdate);
+      audio.addEventListener('error', handleError);
 
       return () => {
         audio.removeEventListener('loadeddata', handleLoadedData);
         audio.removeEventListener('timeupdate', handleTimeUpdate);
+        audio.removeEventListener('error', handleError);
       };
     }
   }, [src]);
 
   const togglePlayPause = () => {
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current.play();
+    const audio = audioRef.current;
+    if (audio) {
+      if (isPlaying) {
+        audio.pause();
+      } else {
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise.then(() => {}).catch((error) => console.error('Playback error:', error));
+        }
+      }
+      setIsPlaying(!isPlaying);
     }
-    setIsPlaying(!isPlaying);
   };
 
   const formatTime = (time) => {
@@ -77,15 +90,22 @@ const MusicPlayer = ({ tracks, isCollapsed, toggleCollapse }) => {
                 <button
                   onClick={togglePlayPause}
                   className="p-2 bg-blue-600 rounded-full focus:outline-none"
+                  disabled={isLoading}
                 >
-                  {isPlaying ? (
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 9v6m4-6v6m5-3H5" />
-                    </svg>
+                  {isLoading ? (
+                    <span>Loading...</span>
                   ) : (
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.752 11.168l-6.487-4.033A1 1 0 007 8v8a1 1 0 001.265.968l6.487-4.033a1 1 0 000-1.736z" />
-                    </svg>
+                    <>
+                      {isPlaying ? (
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 9v6m4-6v6m5-3H5" />
+                        </svg>
+                      ) : (
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.752 11.168l-6.487-4.033A1 1 0 007 8v8a1 1 0 001.265.968l6.487-4.033a1 1 0 000-1.736z" />
+                        </svg>
+                      )}
+                    </>
                   )}
                 </button>
                 <div className="mx-4">{formatTime(currentTime)} / {formatTime(duration)}</div>

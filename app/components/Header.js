@@ -23,12 +23,16 @@ const Header = () => {
   return (
     <>
       <Head>
+        <a href='#'>
         <title>NOIR GAME ZONE</title>
+        </a>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <header className="flex justify-between items-center p-6 bg-gray-900">
         <div className="relative w-10 h-10">
+          <Link href='#'>
           <Image src="/noir-coin-n.png" alt="NOIR Coin" layout="fill" objectFit="cover"  />
+          </Link>
         </div>
         <div className="text-2xl font-bold text-blue-500">NOIR GAME ZONE</div>
         <nav>
