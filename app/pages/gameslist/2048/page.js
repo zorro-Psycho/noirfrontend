@@ -5,6 +5,15 @@ import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import Cookies from "js-cookie";
 
+import MusicPlayer from '../components/MusicPlayer';
+
+const tracks = [
+  { src: "/music/2_Ciphers.mp3", title: "Track 1" },
+  { src: "/music/Decentralization.mp3", title: "Track 2" },
+  { src: "/music/Digital_Revolution.mp3", title: "Track 3" },
+  { src: "/music/Game_On.mp3", title: "Track 4" },
+];
+
 const Game = () => {
   const submitScore = async (score, gameId) => {
     console.log("Submitting score:", score);
@@ -61,6 +70,9 @@ const Game = () => {
   }, []);
 
   return (
+    <>
+    
+    <div className="min-h-screen bg-gradient-to-r from-purple-600 to-blue-500 text-white">< MusicPlayer tracks={tracks}/></div>
     <div className="min-h-screen bg-gradient-to-r from-purple-600 to-blue-500 text-white">
       <Header />
       <main className="flex flex-col items-center justify-center py-20">
@@ -76,6 +88,7 @@ const Game = () => {
       </main>
       <Footer />
     </div>
+    </>
   );
 };
 
