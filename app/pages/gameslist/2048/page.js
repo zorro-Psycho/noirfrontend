@@ -79,24 +79,33 @@ const Game = () => {
       <Header />
       <main className="flex flex-col items-center justify-center py-20">
         <h1 className="text-4xl text-slate-300 transition-all duration-500 dark:text-slate-400 font-bold mb-10">Play 2048</h1>
+        <div className="flex flex-grow">
         <iframe
           src="https://zorro-psycho.github.io/2048/"
           width="800"
           height="600"
           title="2048 Game"
           sandbox="allow-scripts allow-same-origin"
-          className="border-4 border-blue-950 rounded-lg shadow-lg"
+          className="border-4 border-blue-950 rounded-lg shadow-lg flex flex-row items-center justify-center"
         ></iframe>
-      </main>
-      <div className={`flex-shrink-0 h-full flex flex-col items-center justify-center ${isCollapsed ? 'hidden md:flex' : 'flex'}`}
-        style={{
-          backgroundImage: `url('/music-bg2.png')`,  // Replace with your background image URL
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        <MusicPlayer tracks={tracks} isCollapsed={isCollapsed} toggleCollapse={toggleCollapse} />
+
+<div>
+        <div className={`flex-shrink-0 h-full flex flex-row items-center justify-center ${isCollapsed ? 'hidden md:flex' : 'flex'}`}
+          style={{
+            backgroundImage: `url('/game.jpg')`,  // Replace with your background image URL
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          <MusicPlayer tracks={tracks} isCollapsed={isCollapsed} toggleCollapse={toggleCollapse} />
+        </div>
       </div>
+
+        </div>
+        
+      </main>
+      
+      
       <Footer/>
     </div>
   );

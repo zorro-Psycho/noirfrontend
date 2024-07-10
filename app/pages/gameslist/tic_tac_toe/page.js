@@ -71,6 +71,7 @@ const Game = () => {
       <Header />
       <main className="flex flex-col items-center justify-center py-20">
         <h1 className="text-5xl font-bold mb-10">Tic Tac Toe</h1>
+        <div className="flex flex-grow">
         <iframe
           src="https://zorro-psycho.github.io/tic_tac_toe/"
           width="800"
@@ -79,6 +80,22 @@ const Game = () => {
           sandbox="allow-scripts allow-same-origin"
           className="border-4 border-green-400 rounded-lg shadow-lg"
         ></iframe>
+
+        <div>
+        <div className={`flex-shrink-0 h-full flex flex-row items-center justify-center ${isCollapsed ? 'hidden md:flex' : 'flex'}`}
+        style={{
+          backgroundImage: `url('/game.jpg')`,  // Replace with your background image URL
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <MusicPlayer tracks={tracks} isCollapsed={isCollapsed} toggleCollapse={toggleCollapse} />
+      </div>
+
+        </div>
+
+        </div>
+        
         <div className="mt-10 text-center">
           <p className="text-lg">
             
@@ -86,15 +103,7 @@ const Game = () => {
           </p>
         </div>
       </main>
-      <div className={`flex-shrink-0 h-full flex flex-col items-center justify-center ${isCollapsed ? 'hidden md:flex' : 'flex'}`}
-        style={{
-          backgroundImage: `url('/music-bg2.png')`,  // Replace with your background image URL
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        <MusicPlayer tracks={tracks} isCollapsed={isCollapsed} toggleCollapse={toggleCollapse} />
-      </div>
+      
       <Footer />
     </div>
   );

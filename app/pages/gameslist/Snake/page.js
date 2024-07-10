@@ -71,29 +71,37 @@ const Game = () => {
       <Header />
       <main className="flex flex-col items-center justify-center py-20">
         <h1 className="text-5xl font-bold mb-10">Snake Game</h1>
+        <div className="flex flex-grow">
         <iframe
           src="https://zorro-psycho.github.io/snake/"
           width="800"
           height="600"
           title="Snake Game"
           sandbox="allow-scripts allow-same-origin"
-          className="border-4 border-green-400 rounded-lg shadow-lg"
+          className="border-4 border-green-400 rounded-lg shadow-lg flex flex-grow items-center justify-center"
         ></iframe>
-        <div className="mt-10 text-center">
-          <p className="text-lg">
-            Enjoy the classic Snake Game! Use the arrow keys to move and try to eat the food without crashing into the walls or yourself.
-          </p>
-        </div>
-      </main>
-      <div className={`flex-shrink-0 h-full flex flex-col items-center justify-center ${isCollapsed ? 'hidden md:flex' : 'flex'}`}
+        <div>
+        <div className={`flex-shrink-0 h-full flex flex-grow  items-center justify-center ${isCollapsed ? 'hidden md:flex' : 'flex'}`}
         style={{
-          backgroundImage: `url('/music-bg2.png')`,  // Replace with your background image URL
+          backgroundImage: `url('/game.jpg')`,  // Replace with your background image URL
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
         <MusicPlayer tracks={tracks} isCollapsed={isCollapsed} toggleCollapse={toggleCollapse} />
       </div>
+        </div>
+       
+
+        </div>
+        
+        <div className="mt-10 text-center">
+          <p className="text-lg">
+            Enjoy the classic Snake Game! Use the arrow keys to move and try to eat the food without crashing into the walls or yourself.
+          </p>
+        </div>
+      </main>
+      
       <Footer />
     </div>
   );
