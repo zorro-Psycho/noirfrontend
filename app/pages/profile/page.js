@@ -203,7 +203,7 @@ const Profile = () => {
                             {new Date(session.start_time).toLocaleString() ||
                               "N/A"}
                           </p>
-                          <p>Score: {session.score || "N/A"}</p>
+                          <p>Score: {session.score}</p>
                         </div>
                         <button
                           onClick={() => handleDeleteGameSession(session.id)}
