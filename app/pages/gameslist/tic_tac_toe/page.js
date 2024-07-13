@@ -1,11 +1,23 @@
 
 'use client';
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import Cookies from 'js-cookie';
 
+import MusicPlayer from '../../../components/MusicPlayer';
+
+
+const tracks = [
+  { src: '/music/2_Ciphers.mp3', title: '2_Ciphers' },
+  { src: '/music/Decentralization.mp3', title: 'Decentralization' },
+  { src: '/music/Digital_Revolution.mp3', title: 'Digital_Revolution' },
+  { src: '/music/Game_On.mp3', title: 'Game_on' }
+];
+
 const Game = () => {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
   const submitScore = async (score,gameId) => {
     const token = Cookies.get('token');
     console.log('Token:', token);
@@ -50,12 +62,16 @@ const Game = () => {
       window.removeEventListener('message', handleMessage);
     };
   }, []);
+  const toggleCollapse = () => {
+    setIsCollapsed(!isCollapsed); // Toggles the collapsed state
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-green-400 to-blue-500 text-white">
       <Header />
       <main className="flex flex-col items-center justify-center py-20">
         <h1 className="text-5xl font-bold mb-10">Tic Tac Toe</h1>
+        <div className="flex flex-grow">
         <iframe
           src="https://zorro-psycho.github.io/tic_tac_toe/"
           width="800"
@@ -64,6 +80,22 @@ const Game = () => {
           sandbox="allow-scripts allow-same-origin"
           className="border-4 border-green-400 rounded-lg shadow-lg"
         ></iframe>
+
+        <div>
+        <div className={`flex-shrink-0 h-full flex flex-row items-center justify-center ${isCollapsed ? 'hidden md:flex' : 'flex'}`}
+        style={{
+          backgroundImage: `url('/game.jpg')`,  // Replace with your background image URL
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <MusicPlayer tracks={tracks} isCollapsed={isCollapsed} toggleCollapse={toggleCollapse} />
+      </div>
+
+        </div>
+
+        </div>
+        
         <div className="mt-10 text-center">
           <p className="text-lg">
             
@@ -71,6 +103,7 @@ const Game = () => {
           </p>
         </div>
       </main>
+      
       <Footer />
     </div>
   );

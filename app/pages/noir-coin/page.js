@@ -4,6 +4,7 @@ import React from 'react';
 import Head from 'next/head';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import Link from 'next/link';
 
 const NoirRewards = () => {
   return (
@@ -20,12 +21,19 @@ const NoirRewards = () => {
           <h1 className="text-5xl font-bold text-white">Noir Coin® & NFTs</h1>
           <p className="text-2xl text-white mt-4">Earn exclusive rewards by engaging with our platform</p>
         </div>
-      </section>
 
-      
+               
+      </section>
+      <h2 className='text-center pt-1 pb-2 background-blue bg-slate-800 text-ccenter text-4xl'>
+          <Link className='underline text-slate-400 tracking-wider  font-medium cursor-pointer  background-blue bg-slate-800 text-ccenter' href='https://nft-noir.netlify.app/'>
+            FOR EVERY GAME OVER THERE'S A "PLAY AGAIN" </Link>🕹️
+        </h2>
+           
 
     
       <section className="py-20 bg-gray-900 text-center text-white"style={{ background: "linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 1)), url('/bg0.jpeg') no-repeat center center / cover" }}>
+
+      
  
   <h2 className="text-yellow-300 text-4xl mb-10  font-bold text-center tracking-wide font-serif">Ways to Earn NFTs and Noir Coin®</h2>
 
