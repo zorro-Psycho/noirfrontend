@@ -437,7 +437,7 @@ const Profile = () => {
                     .slice(0, visibleGameSessions)
                     .map((session) => {
                       let displayScore = session.score;
-                      if (session.id === 2) {
+                      if (session.id === 3) {
                         if (session.score === 2) displayScore = "Tie";
                         else if (session.score === 0) displayScore = "Loss";
                         else if (session.score === 1) displayScore = "Won";
