@@ -100,10 +100,15 @@ const Home = () => {
 </button>
               </div>
               <div className="game-card">
-                <img src="/img2.jpg" alt="Game 2" className="rounded" />
-                <h3 className="text-2xl mt-6 text-white">Vega Strike</h3>
-                <p className="mt-2 text-m font-serif text-gray-400">Futuristic RTS: Humans vs. aliens with bases, resources, and intense battles.</p>
-                <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition mt-8 mb-10">Play Now</button>
+                <img src="/img2.jpg" alt="Game 2" className=" -mt-12 rounded" />
+                <h3 className="text-2xl mt-0 text-white">Whack-a-Mole</h3>
+                <p className="mt-2 text-m font-serif text-gray-400">A fast-paced game where players score points by hitting moles that randomly pop up from their holes.</p>
+                <button
+  onClick={() => { window.location.href = "https://ngz.netlify.app/pages/gameslist/wack_a_mole"; }}
+  className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition mt-8 mb-10"
+>
+  Play Now
+</button>
               </div>
               <div className="game-card">
                 <img src="/captain-roger.jpg" alt="Game 3" className="rounded" />
