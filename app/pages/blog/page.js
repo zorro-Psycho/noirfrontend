@@ -97,6 +97,7 @@ const featuredArticles = [
 
 const Blog = () => {
   return (
+    
     <div className="min-h-screen flex flex-col">
       <Header />
       <div className="flex-1 bg-cover bg-center" style={{ backgroundImage: 'url("/blog.jpg")' }}>

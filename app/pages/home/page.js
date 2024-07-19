@@ -111,6 +111,17 @@ const Home = () => {
 </button>
               </div>
               <div className="game-card">
+                <img src="/img6.jpeg" alt="Game 2" className=" py-5  rounded" />
+                <h3 className="text-2xl mt-0 text-white">Memory Game</h3>
+                <p className="mt-2 text-m font-serif text-gray-400">Test your memory by flipping cards to find matching pairs, earning higher points with fewer attempts!</p>
+                <button
+  onClick={() => { window.location.href = "https://ngz.netlify.app/pages/gameslist/Memory_game"; }}
+  className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition mt-8 mb-10"
+>
+  Play Now
+</button>
+              </div>
+              <div className="game-card">
                 <img src="/captain-roger.jpg" alt="Game 3" className="rounded" />
                 <h3 className="text-2xl mt-6 text-white">Captain Roger</h3>
                 <p className="mt-2 text-m font-serif text-gray-400">Captain Rogers: Asteroid Belt of Sirius" is a thrilling space adventure.
