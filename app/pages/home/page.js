@@ -131,10 +131,15 @@ const Home = () => {
                 </Link>
               </div>
               <div className="game-card">
-                <img src="/img5.jpg" alt="Game 5" className="rounded" />
-                <h3 className="text-2xl mt-6 text-white">Xonotic</h3>
-                <p className="mt-2 text-m font-serif text-gray-400">A fast-paced first-person shooter (FPS) game inspired by classic arena shooters like Quake III Arena.</p>
-                <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition mt-8 mb-10">Play Now</button>
+                <img src="/flappy.jpg" alt="Game 5" className="rounded" />
+                <h3 className="text-2xl mt-6 text-white">Flappy Bird</h3>
+                <p className="mt-2 text-m font-serif text-gray-400">Guide your bird through pipes while collecting points and competing for the highest score!</p>
+                <button
+  onClick={() => { window.location.href = "https://ngz.netlify.app/pages/gameslist/Flappy_Bird"; }}
+  className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition mt-8 mb-10"
+>
+  Play Now
+</button>
               </div>
               <div className="game-card">
                 <img src="/img1.jpg" alt="Game 1" className="rounded" />
