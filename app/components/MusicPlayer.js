@@ -1,71 +1,104 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from "react";
+import Button from "@mui/material/Button";
+import axios from "axios";
+import { useSearchParams } from "next/navigation";
 
-const MusicPlayer = ({ tracks, isCollapsed, toggleCollapse }) => {
-  const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
+function MusicPlayer() {
+  const searchParams = useSearchParams();
+  const [isLiked, setIsLiked] = useState(false);
+  //Default data
+  const [music, setMusic] = useState({
+    id: "",
+    name: "Noir soul syndicate music player",
+    artistName: "click on songs to play",
+    img: "/logo.png",
+    musicUrl: "#",
+  });
+
+  const audioElement = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
+  const [seekTime, setSeekTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
-  const audioRef = useRef(null);
+  const [currTime, setCurrTime] = useState(0);
+  const songId = searchParams.get("songId");
 
-  const { src, title } = tracks[currentTrackIndex];
+  const MusicPlayer = () => {
+    const [isCollapsed, setIsCollapsed] = useState(false);
 
   useEffect(() => {
-    const audio = audioRef.current;
-    if (audio) {
-      const handleLoadedData = () => {
-        setDuration(audio.duration);
-        setIsLoading(false);
-      };
-      const handleTimeUpdate = () => {
-        setCurrentTime(audio.currentTime);
-      };
-      const handleError = (error) => {
-        console.error('Error loading audio:', error);
-        setIsLoading(false);
-      };
-
-      audio.addEventListener('loadeddata', handleLoadedData);
-      audio.addEventListener('timeupdate', handleTimeUpdate);
-      audio.addEventListener('error', handleError);
-
-      return () => {
-        audio.removeEventListener('loadeddata', handleLoadedData);
-        audio.removeEventListener('timeupdate', handleTimeUpdate);
-        audio.removeEventListener('error', handleError);
-      };
-    }
-  }, [src]);
-
-  const togglePlayPause = () => {
-    const audio = audioRef.current;
-    if (audio) {
-      if (isPlaying) {
-        audio.pause();
-      } else {
-        const playPromise = audio.play();
-        if (playPromise !== undefined) {
-          playPromise.then(() => {}).catch((error) => console.error('Playback error:', error));
+    const fetchSong = async () => {
+      try {
+        const response = await axios.get(
+          `https://phoenixlabs-noir-soul.onrender.com/api/songs/${songId}`
+        );
+        const songData = response.data.data;
+        if (songData) {
+          setMusic({
+            id: songData._id,
+            name: songData.name,
+            artistName: songData.artistName,
+            img: `https://gateway.pinata.cloud/ipfs/${songData.img}`,
+            musicUrl: `https://gateway.pinata.cloud/ipfs/${songData.song}`,
+          });
         }
+      } catch (error) {
+        console.error("Error fetching song:", error);
       }
-      setIsPlaying(!isPlaying);
+    };
+
+    if (songId) {
+      fetchSong();
     }
+  }, [songId]);
+
+  useEffect(() => {
+    if (audioElement.current) {
+      audioElement.current.onloadedmetadata = () => {
+        setDuration(audioElement.current.duration);
+        console.log(
+          "Metadata loaded, duration: ",
+          audioElement.current.duration
+        );
+      };
+
+      audioElement.current.ontimeupdate = () => {
+        setCurrTime(audioElement.current.currentTime);
+        setSeekTime((audioElement.current.currentTime / duration) * 100);
+      };
+
+      if (music.musicUrl && audioElement.current.src !== music.musicUrl) {
+        audioElement.current.src = music.musicUrl;
+      }
+    }
+
+    return () => {
+      if (audioElement.current) {
+        audioElement.current.pause();
+      }
+    };
+  }, [music.musicUrl, duration]);
+
+  const handlePlayPause = () => {
+    if (!isPlaying) {
+      audioElement.current.play().catch((error) => {
+        console.error("Error playing audio: ", error);
+      });
+    } else {
+      audioElement.current.pause();
+    }
+    setIsPlaying(!isPlaying);
   };
 
-  const formatTime = (time) => {
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+  const handleSeekChange = (event) => {
+    const newValue = event.target.value;
+    if (audioElement.current) {
+      audioElement.current.currentTime = (newValue * duration) / 100;
+    }
+    setSeekTime(newValue);
   };
 
-  const nextTrack = () => {
-    setCurrentTrackIndex((prevIndex) => (prevIndex + 1) % tracks.length);
-    setIsPlaying(true); // Auto play next track
-  };
-
-  const previousTrack = () => {
-    setCurrentTrackIndex((prevIndex) => (prevIndex - 1 + tracks.length) % tracks.length);
-    setIsPlaying(true); // Auto play previous track
+  const toggleLiked = () => {
+    setIsLiked(!isLiked);
   };
 
   return (
@@ -161,5 +194,6 @@ const MusicPlayer = ({ tracks, isCollapsed, toggleCollapse }) => {
     </div>
   );
 };
+}
 
 export default MusicPlayer;

@@ -73,6 +73,7 @@ const Game = () => {
   const toggleCollapse = () => {
     setIsCollapsed(!isCollapsed); // Toggles the collapsed state
   };
+    
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-blue-800 to-indigo-900">
@@ -90,7 +91,7 @@ const Game = () => {
         ></iframe>
 
 <div>
-        <div className={`flex-shrink-0 h-full flex flex-row items-center justify-center ${isCollapsed ? 'hidden md:flex' : 'flex'}`}
+        <div className={`flex-shrink-0 w-280 h-full flex flex-row items-center justify-center ${isCollapsed ? 'hidden md:flex' : 'flex'}`}
           style={{
             backgroundImage: `url('/game.jpg')`,  // Replace with your background image URL
             backgroundSize: 'cover',
