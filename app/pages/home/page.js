@@ -68,7 +68,7 @@ const Home = () => {
                 <p className="mt-2 text-m font-serif text-gray-400">Navigate your snake to grow longer by eating food while avoiding collisions in this classic arcade game.</p>
                 {/* <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition mt-8 mb-10">Play Now</button> */}
                 <button
-  onClick={() => { window.location.href = "https://ngz.netlify.app/pages/gameslist/Snake"; }}
+  onClick={() => { window.location.href = "http://localhost:3000/pages/gameslist/Snake"; }}
   className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition mt-8 mb-10"
 > Play Now
 </button>
@@ -80,7 +80,7 @@ const Home = () => {
                 <p className="mt-2 text-m font-serif text-gray-400">Embark on a captivating puzzle journey where you combine numbered tiles to conquer the elusive 2048 tile, testing your strategy and skill.</p>
                 {/* <button onclick="localhost:3000/pages/flappybird" className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition mt-8 mb-10">Play Now</button> */}
                 <button
-  onClick={() => { window.location.href = "https://ngz.netlify.app/pages/gameslist/2048"; }}
+  onClick={() => { window.location.href = "http://localhost:3000/pages/gameslist/2048"; }}
   className="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition mt-8 mb-10"
 >
   Play Now
@@ -93,7 +93,7 @@ const Home = () => {
                 <p className="mt-2 text-m font-serif text-gray-400">Classic strategy game where two players take turns marking spaces in a 3x3 grid to achieve three in a row.</p>
                 {/* <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition mt-8 mb-10">Play Now</button> */}
                 <button
-  onClick={() => { window.location.href = "https://ngz.netlify.app/pages/gameslist/tic_tac_toe"; }}
+  onClick={() => { window.location.href = "http://localhost:3000/pages/gameslist/tic_tac_toe"; }}
   className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition mt-8 mb-10"
 >
   Play Now
@@ -104,7 +104,7 @@ const Home = () => {
                 <h3 className="text-2xl mt-0 text-white">Whack-a-Mole</h3>
                 <p className="mt-2 text-m font-serif text-gray-400">A fast-paced game where players score points by hitting moles that randomly pop up from their holes.</p>
                 <button
-  onClick={() => { window.location.href = "https://ngz.netlify.app/pages/gameslist/wack_a_mole"; }}
+  onClick={() => { window.location.href = "http://localhost:3000/pages/gameslist/wack_a_mole"; }}
   className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition mt-8 mb-10"
 >
   Play Now
@@ -115,7 +115,7 @@ const Home = () => {
                 <h3 className="text-2xl mt-0 text-white">Memory Game</h3>
                 <p className="mt-2 text-m font-serif text-gray-400">Test your memory by flipping cards to find matching pairs, earning higher points with fewer attempts!</p>
                 <button
-  onClick={() => { window.location.href = "https://ngz.netlify.app/pages/gameslist/Memory_game"; }}
+  onClick={() => { window.location.href = "http://localhost:3000/pages/gameslist/Memory_game"; }}
   className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition mt-8 mb-10"
 >
   Play Now
@@ -135,7 +135,7 @@ const Home = () => {
                 <h3 className="text-2xl mt-6 text-white">Flappy Bird</h3>
                 <p className="mt-2 text-m font-serif text-gray-400">Guide your bird through pipes while collecting points and competing for the highest score!</p>
                 <button
-  onClick={() => { window.location.href = "https://ngz.netlify.app/pages/gameslist/Flappy_Bird"; }}
+  onClick={() => { window.location.href = "http://localhost:3000/pages/gameslist/Flappy_Bird"; }}
   className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition mt-8 mb-10"
 >
   Play Now
@@ -146,7 +146,7 @@ const Home = () => {
                 <h3 className="text-2xl mt-6 text-white">Breakout Deluxe</h3>
                 <p className="mt-2 text-m font-serif text-gray-400">A challenging brick-breaking game with escalating difficulty and diverse brick types to test your reflexes and strategy across multiple levels.</p>
                 <button
-  onClick={() => { window.location.href = "https://ngz.netlify.app/pages/gameslist/Break_out"; }}
+  onClick={() => { window.location.href = "http://localhost:3000/pages/gameslist/Break_out"; }}
   className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition mt-8 mb-10"
 >
   Play Now
