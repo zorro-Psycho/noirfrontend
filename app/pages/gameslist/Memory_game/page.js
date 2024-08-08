@@ -3,6 +3,18 @@ import React, { useState, useEffect } from 'react';
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import Cookies from 'js-cookie';
+import dynamic from "next/dynamic";
+
+const MusicPlayer = dynamic(() => import("../../../components/MusicPlayer"), {
+  ssr: false,
+});
+
+const tracks = [
+  { src: "/music/2_Ciphers.mp3", title: "2_Ciphers" },
+  { src: "/music/Decentralization.mp3", title: "Decentralization" },
+  { src: "/music/Digital_Revolution.mp3", title: "Digital_Revolution" },
+  { src: "/music/Game_On.mp3", title: "Game_On" },
+];
 
 const Game = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -76,6 +88,17 @@ const Game = () => {
         </div>
       </main>
       <Footer />
+      <div
+        className={`fixed bottom-0 left-0 w-full ${
+          isCollapsed ? "hidden md:flex" : "flex"
+        }`}
+      >
+        <MusicPlayer
+          tracks={tracks}
+          isCollapsed={isCollapsed}
+          toggleCollapse={toggleCollapse}
+        />
+      </div>
     </div>
   );
 };
