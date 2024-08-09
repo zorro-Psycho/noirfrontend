@@ -1,0 +1,191 @@
+/* header.css */
+
+/* General header styling */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: #1a1a1a; /* Gray-900 equivalent */
+  position: relative;
+}
+
+.header-logo {
+  width: 2.5rem;
+  height: 2.5rem;
+  position: relative;
+}
+
+.header-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3b82f6; /* Blue-500 equivalent */
+}
+
+/* Menu button styles for small screens */
+.menu-button {
+  display: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* Navigation menu styles */
+.nav-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #1a1a1a; /* Gray-900 equivalent */
+}
+
+.nav-menu.open {
+  display: flex;
+}
+
+.nav-menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1rem;
+  list-style-type: none;
+}
+
+.nav-menu li {
+  position: relative;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: #3b82f6; /* Blue-500 equivalent */
+}
+
+/* Dropdown menu styles */
+.nav-menu li .dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: #2d2d2d; /* Gray-800 equivalent */
+  z-index: 10;
+}
+
+.nav-menu li:hover .dropdown {
+  display: block;
+}
+
+
+
+.nav-menu {
+  /* other styles */
+  position: relative; /* Ensure the nav-menu is positioned relatively */
+}
+
+.dropdown {
+  display: none; /* Hide dropdown by default */
+  position: absolute; /* Position it absolutely within the parent */
+  top: 100%; /* Position it directly below the parent item */
+  left: 0; /* Align it to the left of the parent item */
+  background-color: #333; /* Background color of the dropdown */
+  list-style: none; /* Remove default list styles */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+.group:hover .dropdown {
+  display: block; /* Show dropdown on hover */
+}
+
+.dropdown li {
+  padding: 10px;
+  border-bottom: 1px solid #444; /* Optional: add a border between items */
+}
+
+.dropdown li:last-child {
+  border-bottom: none; /* Remove border from last item */
+}
+
+.dropdown a {
+  color: white; /* Text color for dropdown links */
+  text-decoration: none; /* Remove underline from links */
+  display: block; /* Make links fill the dropdown width */
+  padding: 10px; /* Add some padding */
+}
+
+.dropdown a:hover {
+  background-color: #555; /* Background color on hover */
+}
+
+
+
+
+
+
+.dropdown a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: white;
+  text-decoration: none;
+  background-color: #2d2d2d; /* Gray-800 equivalent */
+  transition: background-color 0.3s ease;
+}
+
+.dropdown a:hover {
+  background-color: #3b3b3b; /* Darker gray */
+}
+
+/* Search bar */
+.search-bar {
+  display: none;
+}
+
+.search-bar input {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background-color: #2d2d2d; /* Gray-800 equivalent */
+  color: white;
+  border: 1px solid #4a4a4a; /* Gray-600 equivalent */
+}
+
+/* Responsive styles */
+@media (min-width: 1260px) {
+  .menu-button {
+    display: none;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    width: auto;
+    background-color: transparent;
+  }
+
+  .nav-menu ul {
+    flex-direction: row;
+    padding: 0;
+  }
+
+  .nav-menu li {
+    margin: 0;
+  }
+
+  .search-bar {
+    display: block;
+  }
+}
+
+@media (max-width: 1259px) {
+  .menu-button {
+    display: block;
+  }
+}

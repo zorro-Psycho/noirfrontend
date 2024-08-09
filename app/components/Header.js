@@ -5,9 +5,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head';
 import Cookies from 'js-cookie';
+import './Headercs.css'; // Import the CSS file
 
 const Header = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const token = Cookies.get('token');
@@ -20,31 +22,40 @@ const Header = () => {
     window.location.href = '/';
   };
 
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <>
       <Head>
-        <a href='#'>
         <title>NOIR GAME ZONE</title>
-        </a>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <header className="flex justify-between items-center p-6 bg-gray-900">
-        <div className="relative w-10 h-10">
-          <Link href='#'>
-          <Image src="/noir-coin-n.png" alt="NOIR Coin" layout="fill" objectFit="cover"  />
+      <header className="header">
+        <div className="header-logo">
+          <Link href="#">
+            <Image src="/noir-coin-n.png" alt="NOIR Coin" layout="fill" objectFit="cover" />
           </Link>
         </div>
-        <div className="text-2xl font-bold text-blue-500">NOIR GAME ZONE</div>
-        <nav>
-          <ul className="flex gap-5 list-none">
+        <div className="header-title">NOIR GAME ZONE</div>
+
+        {/* Menu Button for smaller screens */}
+        <button className="menu-button" onClick={toggleMenu}>
+          ☰
+        </button>
+
+        {/* Navigation menu */}
+        <nav className={`nav-menu ${menuOpen ? 'open' : ''}`}>
+          <ul>
             <li className="relative group">
               <Link href="/" className="text-white hover:text-blue-500 transition">Home</Link>
             </li>
             <li className="relative group z-10">
               <Link href="/pages/game" className="text-white hover:text-blue-500 transition">Games</Link>
-              <ul className="absolute left-0 mt-1 bg-gray-800 hidden group-hover:block z-10">
-                <li><Link href="/pages/game" className="block px-4 py-1 text-white hover:bg-black-700">Featured Games</Link></li>
-                <li><Link href="/pages/game-categories" className="block px-4 py-2 text-white hover:bg-gray-700">Game Categories</Link></li>
+              <ul className="dropdown">
+                <li><Link href="/pages/game" className="block">Featured Games</Link></li>
+                <li><Link href="/pages/game-categories" className="block">Game Categories</Link></li>
               </ul>
             </li>
             <li className="relative group z-10">
@@ -52,11 +63,11 @@ const Header = () => {
             </li>
             <li className="relative group z-10">
               <Link href="#" className="text-white hover:text-blue-500 transition">Community</Link>
-              <ul className="absolute left-0 mt-1 bg-gray-800 hidden group-hover:block z-10">
-                <li><Link href="#" className="block px-4 py-2 text-white hover:bg-gray-700">Forums</Link></li>
-                <li><Link href="#" className="block px-4 py-2 text-white hover:bg-gray-700">Events</Link></li>
-                <li><Link href="/pages/leaderboard" className="block px-4 py-2 text-white hover:bg-gray-700">Leaderboards</Link></li>
-                <li><Link href="/pages/tournament" className="block px-4 py-2 text-white hover:bg-gray-700">Tournaments</Link></li>
+              <ul className="dropdown">
+                <li><Link href="#" className="block">Forums</Link></li>
+                <li><Link href="#" className="block">Events</Link></li>
+                <li><Link href="/pages/leaderboard" className="block">Leaderboards</Link></li>
+                <li><Link href="/pages/tournament" className="block">Tournaments</Link></li>
               </ul>
             </li>
             <li className="relative group">
@@ -64,20 +75,20 @@ const Header = () => {
             </li>
             <li className="relative group z-10">
               <Link href="/pages/faq" className="text-white hover:text-blue-500 transition">Support</Link>
-              <ul className="absolute left-0 mt-1 bg-gray-800 hidden group-hover:block z-10">
-                <li><Link href="/pages/faq" className="block px-4 py-2 text-white hover:bg-gray-700">FAQs</Link></li>
-                <li><Link href="/pages/contact" className="block px-4 py-2 text-white hover:bg-gray-700">Contact Us</Link></li>
-                <li><Link href="/pages/technical" className="block px-4 py-2 text-white hover:bg-gray-700">Technical Support</Link></li>
+              <ul className="dropdown">
+                <li><Link href="/pages/faq" className="block">FAQs</Link></li>
+                <li><Link href="/pages/contact" className="block">Contact Us</Link></li>
+                <li><Link href="/pages/technical" className="block">Technical Support</Link></li>
               </ul>
             </li>
             {isAuthenticated ? (
               <>
                 <li className="relative group z-10">
                   <Link href="/pages/profile" className="text-white hover:text-blue-500 transition">Account</Link>
-                  <ul className="absolute left-0 mt-1 bg-gray-800 hidden group-hover:block z-10">
-                    <li><Link href="/pages/profile" className="block px-4 py-2 text-white hover:bg-gray-700">Profile</Link></li>
-                    <li><Link href="#" className="block px-4 py-2 text-white hover:bg-gray-700">Achievements</Link></li>
-                    <li><Link href="/pages/setting" className="block px-4 py-2 text-white hover:bg-gray-700">Settings</Link></li>
+                  <ul className="dropdown">
+                    <li><Link href="/pages/profile" className="block">Profile</Link></li>
+                    <li><Link href="#" className="block">Achievements</Link></li>
+                    <li><Link href="/pages/setting" className="block">Settings</Link></li>
                   </ul>
                 </li>
                 <li>
@@ -91,9 +102,9 @@ const Header = () => {
             )}
             <li className="relative group z-10">
               <Link href="https://my-store-f7cfd7.creator-spring.com" className="text-white hover:text-blue-500 transition">Shop</Link>
-              <ul className="absolute left-0 mt-1 bg-gray-800 hidden group-hover:block z-10">
-                <li><Link href="https://my-store-f7cfd7.creator-spring.com" className="block px-4 py-2 text-white hover:bg-gray-700">Merchandise</Link></li>
-                <li><Link href="#" className="block px-4 py-2 text-white hover:bg-gray-700">In-Game Items</Link></li>
+              <ul className="dropdown">
+                <li><Link href="https://my-store-f7cfd7.creator-spring.com" className="block">Merchandise</Link></li>
+                <li><Link href="#" className="block">In-Game Items</Link></li>
               </ul>
             </li>
             <li className="relative group">
@@ -101,8 +112,10 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-        <div>
-          <input type="text" placeholder="Search games..." className="p-2 rounded bg-gray-800 text-white border border-gray-600" />
+
+        {/* Search bar, visible on large screens */}
+        <div className="search-bar">
+          <input type="text" placeholder="Search games..." />
         </div>
       </header>
     </>
