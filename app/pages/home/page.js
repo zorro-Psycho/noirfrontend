@@ -451,6 +451,32 @@ const Home = () => {
 
               </div>
               <div className="game-card">
+                <img src="pac.jpg" alt="Game 4" className="rounded" />
+                <h3 className="text-2xl mt-6 text-white">Pac-Man</h3>
+                <p className="mt-2 text-m font-serif text-gray-400">Guide Pac-Man through the maze, devour pellets, and outsmart ghosts in this classic arcade challenge!</p>
+                {/* <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition mt-8 mb-10">Play Now</button> */}
+                <button
+  onClick={() => { window.location.href = "https://ngz.netlify.app/pages/gameslist/pac_man"; }}
+  className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition mt-8 mb-10"
+>
+  Play Now
+</button>
+              </div>
+              {/* <div className="game-card">
+                <img src="/pac.jpg" alt="Pac_man game" className="rounded" />
+                
+
+                <h3 className="text-2xl mt-6 text-white">Pac-Man</h3>
+                <p className="mt-2 text-m font-serif text-gray-400">Guide Pac-Man through the maze, devour pellets, and outsmart ghosts in this classic arcade challenge!</p>
+                <button
+  onClick={() => { window.location.href = "https://ngz.netlify.app/pages/gameslist/pac_man"; }}
+  className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition mt-8 mb-10"
+>
+  Play Now
+</button>
+
+              </div> */}
+              <div className="game-card">
                 <img src="/img1.jpg" alt="Game 1" className="rounded" />
                 <h3 className="text-2xl mt-6 text-white">Battle for Wesnoth</h3>
                 <p className="mt-2 text-m font-serif text-gray-400">A fantasy turn-based strategy game inspired by classic titles like Heroes of Might and Magic.</p>
