@@ -61,7 +61,7 @@ const Header = () => {
             <li className="relative group z-10">
               <Link href="/pages/noir-coin" className="text-white hover:text-blue-500 transition">Noir Coin® & NFTs</Link>
             </li>
-            <li className="relative group z-10">
+            <li className="relative group z-20">
               <Link href="#" className="text-white hover:text-blue-500 transition">Community</Link>
               <ul className="dropdown">
                 <li><Link href="#" className="block">Forums</Link></li>

@@ -6,7 +6,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem;
-  background-color: #1a1a1a; /* Gray-900 equivalent */
+  background-color: rgb(31 41 55);
   position: relative;
 }
 
@@ -99,6 +99,7 @@
   list-style: none; /* Remove default list styles */
   padding: 0; /* Remove default padding */
   margin: 0; /* Remove default margin */
+  width: 160px;
 }
 
 .group:hover .dropdown {
@@ -125,6 +126,20 @@
   background-color: #555; /* Background color on hover */
 }
 
+.nav-menu ul li a {
+  color: white; /* Default text color */
+  background-color: transparent; /* Default background color */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+.nav-menu ul li a:hover,
+.nav-menu ul li a.active {
+  /* color: blue; Text color on hover and active state */
+  background-color: #333; /* Background color on hover and active state */
+}
+
+
+
 
 
 
@@ -137,6 +152,7 @@
   text-decoration: none;
   background-color: #2d2d2d; /* Gray-800 equivalent */
   transition: background-color 0.3s ease;
+  
 }
 
 .dropdown a:hover {

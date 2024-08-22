@@ -1,4 +1,4 @@
-// pages/blog/index.js
+
 import Header from '@/app/components/Header'; // Adjust the import path as per your project structure
 import Footer from '@/app/components/Footer'; // Import Footer component if needed
 
@@ -8,7 +8,7 @@ const blogPosts = [
     id: 1,
     title: 'Exploring 0 AD: A Journey through Ancient History',
     date: 'June 15, 2024',
-    image:'blog3.jpeg',
+    image: 'blog3.jpeg',
     category: 'Game Development',
     excerpt:
       'Delve into the historical context and development insights behind 0 AD, a unique RTS game.',
@@ -27,7 +27,7 @@ const blogPosts = [
     title: 'Game Development Trends to Watch in 2024',
     date: 'June 10, 2024',
     category: 'Industry Trends',
-    image:'blog4.png',
+    image: 'blog4.png',
     excerpt:
       'Explore the latest trends and innovations shaping the gaming industry in 2024 and beyond.',
     slug: 'game-development-trends-2024',
@@ -45,7 +45,7 @@ const blogPosts = [
     title: 'Latest News and Updates from Noir Game Zone',
     date: 'June 5, 2024',
     category: 'Updates',
-    image:'blog5.jpeg',
+    image: 'blog5.jpeg',
     excerpt:
       'Stay informed with the latest news, updates, and insights from Noir Game Zone.',
     slug: 'latest-news-updates-noir-game-zone',
@@ -73,7 +73,7 @@ const featuredArticles = [
     author: {
       name: 'Emily Johnson',
     },
-    image:'blog1.jpeg',
+    image: 'blog1.jpeg',
     content: `
       <p>Open-source gaming has revolutionized how games are developed, distributed, and played. Learn about the history of open-source principles in gaming and their role in fostering innovation and community collaboration.</p>
       <p>Explore case studies of successful open-source games and how they have influenced mainstream gaming trends and practices.</p>
@@ -88,7 +88,7 @@ const featuredArticles = [
     excerpt:
       'Get firsthand insights from an indie game developer on challenges, inspirations, and advice for aspiring developers.',
     slug: 'interview-indie-game-developer',
-    image:'blog2.jpg',
+    image: 'blog2.jpg',
     author: {
       name: 'David Clark',
     },
@@ -102,61 +102,74 @@ const featuredArticles = [
 
 const Blog = () => {
   return (
-    
     <div className="min-h-screen flex flex-col">
       <Header />
-      <div className="flex-1 bg-cover bg-center" style={{ backgroundImage: 'url("/blog.jpg")' }}>
+      <div
+        className="flex-1 bg-cover bg-center"
+        style={{ backgroundImage: 'url("/blog.jpg")' }}
+      >
         <div className="bg-black bg-opacity-50 py-12 px-4">
           <div className="max-w-7xl mx-auto">
-            <h1 className="text-4xl font-bold text-white mb-8 text-center">Noir Game Zone Blog</h1>
-            <p className="text-lg text-white mb-8 leading-relaxed text-center">
-              Stay informed with the latest news, updates, and insights from the gaming world. Our blog covers a wide range of topics including game development, industry trends, and exclusive interviews with developers and players.
+            <h1 className="text-3xl sm:text-4xl font-bold text-white mb-8 text-center">
+              Noir Game Zone Blog
+            </h1>
+            <p className="text-base sm:text-lg text-white mb-8 leading-relaxed text-center">
+              Stay informed with the latest news, updates, and insights from the
+              gaming world. Our blog covers a wide range of topics including
+              game development, industry trends, and exclusive interviews with
+              developers and players.
             </p>
+
             {/* Featured Articles */}
             <div className="mb-12">
-  <h2 className="text-2xl font-bold text-white mb-4">Featured Articles</h2>
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-    {featuredArticles.map((article) => (
-      <div
-        key={article.id}
-        className="bg-white bg-opacity-80 shadow-md rounded-lg overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105"
-      >
-        <img
-          src={`/${article.image}`}
-          alt={`Thumbnail for ${article.title}`}
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-4">
-          <div className="mb-4 flex items-center text-gray-600 text-sm">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 mr-1"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M2 10a8 8 0 1116 0 8 8 0 01-16 0zm8-7a7 7 0 00-4.95 11.95L14.95 6.05A7 7 0 0010 3z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <span>{article.date}</span>
-          </div>
-          <h3 className="text-lg font-semibold mb-2">{article.title}</h3>
-          <p className="text-gray-700">{article.excerpt}</p>
-          <a href={`/blog/${article.slug}`} className="text-blue-600 mt-4 inline-block hover:underline">
-            Read more
-          </a>
-        </div>
-      </div>
-    ))}
-  </div>
-</div>
+              <h2 className="text-2xl font-bold text-white mb-4">Featured Articles</h2>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {featuredArticles.map((article) => (
+                  <div
+                    key={article.id}
+                    className="bg-white bg-opacity-80 shadow-md rounded-lg overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+                  >
+                    <img
+                      src={`/${article.image}`}
+                      alt={`Thumbnail for ${article.title}`}
+                      className="w-full h-48 object-cover"
+                    />
+                    <div className="p-4">
+                      <div className="mb-4 flex items-center text-gray-600 text-sm">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5 mr-1"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M2 10a8 8 0 1116 0 8 8 0 01-16 0zm8-7a7 7 0 00-4.95 11.95L14.95 6.05A7 7 0 0010 3z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        <span>{article.date}</span>
+                      </div>
+                      <h3 className="text-lg font-semibold mb-2">
+                        {article.title}
+                      </h3>
+                      <p className="text-gray-700">{article.excerpt}</p>
+                      <a
+                        href={`/blog/${article.slug}`}
+                        className="text-blue-600 mt-4 inline-block hover:underline"
+                      >
+                        Read more
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
 
             {/* Latest News and Updates */}
             <div>
               <h2 className="text-2xl font-bold text-white mb-4">Latest News and Updates</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {blogPosts.map((post) => (
                   <div
                     key={post.id}
@@ -165,7 +178,7 @@ const Blog = () => {
                     <img
                       src={`/${post.image}`}
                       alt={`Thumbnail for ${post.title}`}
-                      className="w-full h-60 object-cover"
+                      className="w-full h-48 sm:h-60 object-cover"
                     />
                     <div className="p-4">
                       <div className="mb-4 flex items-center text-gray-600 text-sm">
@@ -185,7 +198,10 @@ const Blog = () => {
                       </div>
                       <h3 className="text-lg font-semibold mb-2">{post.title}</h3>
                       <p className="text-gray-700">{post.excerpt}</p>
-                      <a href={`/blog/${post.slug}`} className="text-blue-600 mt-4 inline-block hover:underline">
+                      <a
+                        href={`/blog/${post.slug}`}
+                        className="text-blue-600 mt-4 inline-block hover:underline"
+                      >
                         Read more
                       </a>
                     </div>
